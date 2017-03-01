@@ -40,7 +40,7 @@ func (w *Worker) Start() {
 			case work := <-w.Work:
 				// Receive a work request.
 				fmt.Printf("worker%d: Received work request, to get stats for %s \n", w.ID, work.AppName)
-
+				//Push Results back to a results channel.
 				time.Sleep(1)
 
 			case <-w.QuitChan:
