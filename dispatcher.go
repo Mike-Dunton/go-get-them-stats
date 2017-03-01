@@ -12,7 +12,8 @@ func StartDispatcher(nworkers int) {
 	// First, initialize the channel we are going to put the workers' work channels into.
 	WorkerQueue = make(chan chan helpers.WorkRequest, nworkers)
 
-	// Now, create all of our workers.
+	// Now, create all of our workers. //Probably have as many works as there are
+	// apps in the configuration.
 	for i := 0; i < nworkers; i++ {
 		fmt.Println("Starting worker", i+1)
 		worker := NewWorker(i+1, WorkerQueue)
